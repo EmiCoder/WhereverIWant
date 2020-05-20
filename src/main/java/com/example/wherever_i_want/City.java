@@ -1,8 +1,12 @@
 package com.example.wherever_i_want;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 
+import java.io.UnsupportedEncodingException;
+
 @Getter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class City {
 
     private int id;
@@ -14,4 +18,10 @@ public class City {
         this.name = name;
         this.country = country;
     }
+
+    @Override
+    public String toString() {
+        return "City{id=" + id + ", name= " + name + ", country= " + country + "}";
+    }
+
 }
