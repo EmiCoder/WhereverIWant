@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MeteostatStationTemperaturesDto {
-    @JsonProperty("data")
-    private DataDto dataDto;
+public class DataDto {
+    @JsonProperty("temperature")
+    private TemperatureDto temperature;
 }

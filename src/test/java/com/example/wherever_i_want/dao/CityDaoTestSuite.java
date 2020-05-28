@@ -22,15 +22,16 @@ public class CityDaoTestSuite {
     public void testTaskDaoSave() {
 
         City city = new City();
+        city.setId("123");
         city.setName("Qabāghlū");
-        city.setCountry("IR");
+        city.setCountryCode("IR");
         cityDao.save(city);
 
-        Assert.assertEquals(1, cityDao.findByName("Town_1").size());
+        Assert.assertEquals(1, cityDao.findByName("Qabāghlū").size());
 
-        Optional<City> readCity = cityDao.findById(city.getId());
+        Optional<City> readCity = cityDao.findById(city.getGeneral_id());
         Assert.assertTrue(readCity.isPresent());
 
-        cityDao.deleteById(city.getId());
+        cityDao.deleteById(city.getGeneral_id());
     }
 }
