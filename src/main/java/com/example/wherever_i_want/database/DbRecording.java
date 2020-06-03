@@ -18,7 +18,6 @@ public class DbRecording {
     private static String country_code;
     private static StringBuilder sqlQuery;
     private static DbRecording dbRecording;
-    private int counter = 1;
 
     private DbRecording() throws SQLException, FileNotFoundException, UnsupportedEncodingException {
         DbManager dbManager = DbManager.getInstance();
@@ -32,15 +31,10 @@ public class DbRecording {
             city_name = list.get(i).getName();
             country_code = list.get(i).getCountryCode();
 
-            System.out.print("pozycja " + counter);
-            System.out.println(" " +  id);
-            System.out.println("");
-
             sqlQuery = new StringBuilder("INSERT INTO CITIES (city_id, `city_name`, country_code) VALUES " +
-                    "("+ id.toString() + "," +"\"" + city_name + "\"" + "," + "'" + country_code + "'" + ");");
+                    "(" +"\"" + id  +"\"" + "," +"\"" + city_name + "\"" + "," + "'" + country_code + "'" + ");");
 
             statement.execute(sqlQuery.toString());
-            counter++;
         }
         statement.close();
     }

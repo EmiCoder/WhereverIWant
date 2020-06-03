@@ -15,8 +15,9 @@ public class MeteostatController {
     @Autowired
     private Client client;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getStationTemperatures")
+    @RequestMapping(value = "/getStationTemperatures", method = RequestMethod.GET)
     public void getMeteostatStationTemperatures() {
+
         List<MeteostatStationTemperaturesDto> temperaturesDtos = client.getMeteostatTemperaturesDto();
         temperaturesDtos.forEach(meteostatStationTemperaturesDto -> meteostatStationTemperaturesDto
                                                                             .getDataDto()

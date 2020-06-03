@@ -21,8 +21,10 @@ public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "GENERAL_ID")
     private int general_id;
     @Column(name = "CITY_ID")
+    @JsonProperty("id")
     private String id;
     @Column(name="CITY_NAME")
     private String name;

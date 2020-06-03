@@ -29,6 +29,9 @@ dependencies {
     compile 'mysql:mysql-connector-java'
 
     compile group: 'com.vaadin.external.json', name: 'json', version: '0.0.20080701'
+
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.6.0'
+
 }
 
 test {

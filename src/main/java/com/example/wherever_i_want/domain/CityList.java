@@ -33,6 +33,7 @@ public class CityList {
         JsonReader reader = new JsonReader(
                 new InputStreamReader(
                         new FileInputStream("src/main/resources/stations.json"), "UTF-8"));
+
         list = gson.fromJson(reader, CITY_TYPE);
         return list;
     }
