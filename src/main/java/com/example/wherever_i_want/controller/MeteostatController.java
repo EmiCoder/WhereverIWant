@@ -6,7 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.wherever_i_want.meteostat.client.Client;
 
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/meteostat")
@@ -16,12 +20,12 @@ public class MeteostatController {
     private Client client;
 
     @RequestMapping(value = "/getStationTemperatures", method = RequestMethod.GET)
-    public void getMeteostatStationTemperatures() {
+    public MeteostatStationTemperaturesDto getMeteostatStationTemperatures() {
+        return client.getMeteostatTemperaturesDto();
+    }
 
-        List<MeteostatStationTemperaturesDto> temperaturesDtos = client.getMeteostatTemperaturesDto();
-        temperaturesDtos.forEach(meteostatStationTemperaturesDto -> meteostatStationTemperaturesDto
-                                                                            .getDataDto()
-                                                                            .getTemperature()
-                                                                            .toString());
+    @RequestMapping(value = "/getStationTemperaturesList", method = RequestMethod.GET)
+    public List<MeteostatStationTemperaturesDto> getMeteostatStationTemperaturesList() throws FileNotFoundException, UnsupportedEncodingException, SQLException {
+        return client.getMeteostatTemperaturesDtoList();
     }
 }

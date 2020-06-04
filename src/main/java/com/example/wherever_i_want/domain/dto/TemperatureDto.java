@@ -5,10 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TemperatureDto {
 
@@ -36,22 +38,4 @@ public class TemperatureDto {
     private String NOV;
     @JsonProperty("DEC")
     private String DEC;
-
-    @Override
-    public String toString() {
-        return "TemperatureDto{" +
-                "JAN='" + JAN + '\'' +
-                ", FEB='" + FEB + '\'' +
-                ", MAR='" + MAR + '\'' +
-                ", APR='" + APR + '\'' +
-                ", MAY='" + MAY + '\'' +
-                ", JUN='" + JUN + '\'' +
-                ", JUL='" + JUL + '\'' +
-                ", AUG='" + AUG + '\'' +
-                ", SEP='" + SEP + '\'' +
-                ", OCT='" + OCT + '\'' +
-                ", NOV='" + NOV + '\'' +
-                ", DEC='" + DEC + '\'' +
-                '}';
-    }
 }
