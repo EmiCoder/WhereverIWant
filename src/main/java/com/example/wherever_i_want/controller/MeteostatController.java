@@ -1,5 +1,6 @@
 package com.example.wherever_i_want.controller;
 import com.example.wherever_i_want.domain.dto.MeteostatStationTemperaturesDto;
+import com.example.wherever_i_want.meteostat.client.StationClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,8 +25,8 @@ public class MeteostatController {
         return client.getMeteostatTemperaturesDto();
     }
 
-    @RequestMapping(value = "/getStationTemperaturesList", method = RequestMethod.GET)
-    public List<MeteostatStationTemperaturesDto> getMeteostatStationTemperaturesList() throws FileNotFoundException, UnsupportedEncodingException, SQLException {
-        return client.getMeteostatTemperaturesDtoList();
-    }
+//    @RequestMapping(value = "/getStationTemperaturesList", method = RequestMethod.GET)
+//    public List<MeteostatStationTemperaturesDto> getMeteostatStationTemperaturesList() throws FileNotFoundException, UnsupportedEncodingException, SQLException, InterruptedException {
+//        return client.getMeteostatTemperaturesDtoList();
+//    }
 }

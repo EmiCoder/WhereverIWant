@@ -1,20 +1,16 @@
 package com.example.wherever_i_want;
 
-import com.example.wherever_i_want.domain.URI_List;
-import com.example.wherever_i_want.domain.dto.MeteostatStationTemperaturesDto;
+import com.example.wherever_i_want.domain.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        List<MeteostatStationTemperaturesDto> list = new ArrayList<>();
-        list.add(new MeteostatStationTemperaturesDto(null));
-        list.add(new MeteostatStationTemperaturesDto(null));
-        System.out.println(list.size());
-        for (MeteostatStationTemperaturesDto s : list) {
-            System.out.println(s);
-        }
+    public static void main(String[] args) throws InterruptedException, SQLException {
+
+        UserResponse response = new UserResponse(new UserRequest(25, Month.APRIL, "DE"));
+        GoogleMapsShowMethod.show(response.getResponseCitiesList().get(4));
     }
+
 }
+

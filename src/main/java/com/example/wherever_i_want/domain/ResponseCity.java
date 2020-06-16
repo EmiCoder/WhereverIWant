@@ -1,5 +1,6 @@
 package com.example.wherever_i_want.domain;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +10,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserRequest {
+public class ResponseCity {
 
-    private int temperature;
-    private Month month;
-    private String countryCode;
+    private String cityId;
+    private String cityName;
+    private String countryName;
 }

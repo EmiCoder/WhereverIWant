@@ -41,7 +41,7 @@ public class URI_List {
 
     }
 
-    public static URI_List getURI_List() throws FileNotFoundException, UnsupportedEncodingException, SQLException {
+    public static URI_List getURI_List() throws SQLException {
         return (uri_list == null) ? uri_list = new URI_List() : uri_list;
     }
 }

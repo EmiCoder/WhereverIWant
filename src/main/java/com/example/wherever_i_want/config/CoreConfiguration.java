@@ -1,12 +1,14 @@
 package com.example.wherever_i_want.config;
 
-import com.example.wherever_i_want.domain.dto.MeteostatStationTemperaturesDto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class CoreConfiguration {
+@EnableScheduling
+public class CoreConfiguration implements WebMvcConfigurer {
 
     @Bean
     public RestTemplate restTemplate() {
