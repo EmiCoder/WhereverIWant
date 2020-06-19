@@ -14,4 +14,6 @@ public class Config {
 
     @Value("${meteostat.app.key}")
     private String meteostatAppKey;
+
+
 }

@@ -24,9 +24,4 @@ public class MeteostatController {
     public MeteostatStationTemperaturesDto getMeteostatStationTemperatures() {
         return client.getMeteostatTemperaturesDto();
     }
-
-//    @RequestMapping(value = "/getStationTemperaturesList", method = RequestMethod.GET)
-//    public List<MeteostatStationTemperaturesDto> getMeteostatStationTemperaturesList() throws FileNotFoundException, UnsupportedEncodingException, SQLException, InterruptedException {
-//        return client.getMeteostatTemperaturesDtoList();
-//    }
 }

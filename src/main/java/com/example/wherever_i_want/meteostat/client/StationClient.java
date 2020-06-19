@@ -1,6 +1,5 @@
 package com.example.wherever_i_want.meteostat.client;
 
-import com.example.wherever_i_want.database.DbManager;
 import com.example.wherever_i_want.domain.dto.MeteostatStationTemperaturesDto;
 import com.example.wherever_i_want.mapper.StationTemperaturesMapper;
 import com.example.wherever_i_want.service.StationTemperaturesService;
