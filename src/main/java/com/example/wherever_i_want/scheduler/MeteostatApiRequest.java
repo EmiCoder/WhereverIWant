@@ -1,9 +1,8 @@
 package com.example.wherever_i_want.scheduler;
 
 import com.example.wherever_i_want.database.DbManager;
-import com.example.wherever_i_want.database.DbRecording;
 import com.example.wherever_i_want.domain.URI_List;
-import com.example.wherever_i_want.meteostat.client.StationClient;
+import com.example.wherever_i_want.meteo.client.StationClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

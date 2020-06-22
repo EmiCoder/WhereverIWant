@@ -1,4 +1,4 @@
-package com.example.wherever_i_want.meteostat.config;
+package com.example.wherever_i_want.meteo.config;
 
 
 import lombok.Getter;

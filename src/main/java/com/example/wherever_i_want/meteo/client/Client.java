@@ -1,8 +1,7 @@
-package com.example.wherever_i_want.meteostat.client;
+package com.example.wherever_i_want.meteo.client;
 
-import com.example.wherever_i_want.domain.URI_List;
 import com.example.wherever_i_want.domain.dto.MeteostatStationTemperaturesDto;
-import com.example.wherever_i_want.meteostat.config.Config;
+import com.example.wherever_i_want.meteo.config.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
