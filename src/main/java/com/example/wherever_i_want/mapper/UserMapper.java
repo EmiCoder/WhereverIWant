@@ -1,8 +1,9 @@
 package com.example.wherever_i_want.mapper;
 
-import com.example.wherever_i_want.dao.UserDao;
 import com.example.wherever_i_want.domain.dto.UserDto;
 import com.example.wherever_i_want.domain.loginRegisterStaff.User;
+import com.example.wherever_i_want.service.RegisterService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.stream.Collectors;
 
 @Component
 public class UserMapper {
+
+
     public User mapToUser(UserDto userDto) {
         return new User(userDto.getId(),
                         userDto.getNick(),

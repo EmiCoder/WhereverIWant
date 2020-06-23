@@ -26,4 +26,19 @@ public class UserController {
     public UserDto getUser(@PathVariable Integer id) {
         return userMapper.mapToUserDto(userService.findById(id));
     }
+
+    @PostMapping(value = "/createUser")
+    public UserDto createUser(@RequestBody UserDto userDto) {
+        return userMapper.mapToUserDto(userService.save(userMapper.mapToUser(userDto)));
+    }
+
+    @PutMapping(value = "/updateUser")
+    public UserDto updateUser(@RequestBody UserDto userDto) {
+        return userMapper.mapToUserDto(userService.save(userMapper.mapToUser(userDto)));
+    }
+
+    @DeleteMapping(value = "deleteUserById/{id}")
+    public void deleteUserById(@PathVariable Integer id) {
+
+    }
 }
