@@ -2,6 +2,7 @@ package com.example.wherever_i_want.mapper;
 
 import com.example.wherever_i_want.domain.dto.RegisterDto;
 import com.example.wherever_i_want.domain.loginRegisterStaff.Register;
+import com.example.wherever_i_want.domain.loginRegisterStaff.User;
 import com.example.wherever_i_want.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,9 +16,22 @@ public class RegisterMapper {
     @Autowired
     private UserService userService;
 
-    public Register mapToRegister(RegisterDto registerDto) {
+
+
+    public Register mapToRegister(RegisterDto registerDto,
+                                  String nick, String firstname, String lastname,
+                                  int age, String eMail, String password) {
+        User user = new User();
+        user.setId(registerDto.getUserId());
+        user.setNick(nick);
+        user.setFirstname(firstname);
+        user.setLastname(lastname);
+        user.setAge(age);
+        user.setEMail(eMail);
+        user.setPassword(password);
+
         return new Register(registerDto.getId(),
-                            userService.findById(registerDto.getId()),
+                            userService.save(user),
                             registerDto.getRegisterDate(),
                             registerDto.getRegisterTime());
     }

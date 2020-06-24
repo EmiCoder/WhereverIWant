@@ -19,7 +19,7 @@ public class LogIn {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private int id;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
     @Column(name = "LOGIN_DATE")

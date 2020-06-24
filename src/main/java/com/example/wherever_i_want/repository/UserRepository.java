@@ -18,4 +18,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     @Override
     void deleteById(Integer userId);
+
+    User findByNick(String nick);
 }

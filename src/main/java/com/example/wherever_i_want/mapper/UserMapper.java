@@ -14,13 +14,15 @@ public class UserMapper {
 
 
     public User mapToUser(UserDto userDto) {
-        return new User(userDto.getId(),
-                        userDto.getNick(),
-                        userDto.getFirstname(),
-                        userDto.getLastname(),
-                        userDto.getAge(),
-                        userDto.getEMail(),
-                        userDto.getPassword());
+        User user = new User();
+        user.setId(userDto.getId());
+        user.setNick(userDto.getNick());
+        user.setFirstname(userDto.getFirstname());
+        user.setLastname( userDto.getLastname());
+        user.setAge(userDto.getAge());
+        user.setEMail(userDto.getEMail());
+        user.setPassword(userDto.getPassword());
+        return user;
     }
 
     public UserDto mapToUserDto(User user) {

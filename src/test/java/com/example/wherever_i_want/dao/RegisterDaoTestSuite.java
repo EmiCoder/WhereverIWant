@@ -22,6 +22,7 @@ public class RegisterDaoTestSuite {
             user.setNick("MyNick");
             user.setFirstname("MyFirstName");
             user.setLastname("MyLastName");
+            user.setAge(24);
             user.setEMail("MyEMail");
             user.setPassword("MyPassword");
 

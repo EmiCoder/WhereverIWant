@@ -1,7 +1,10 @@
 package com.example.wherever_i_want.controller;
 
 import com.example.wherever_i_want.domain.dto.UserDto;
+import com.example.wherever_i_want.domain.loginRegisterStaff.Register;
 import com.example.wherever_i_want.mapper.UserMapper;
+import com.example.wherever_i_want.repository.RegisterRepository;
+import com.example.wherever_i_want.service.RegisterService;
 import com.example.wherever_i_want.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +19,10 @@ public class UserController {
     private UserService userService;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private RegisterRepository registerRepository;
+    @Autowired
+    private RegisterService registerService;
 
     @GetMapping(value = "/getAllUsers")
     public List<UserDto> getAllUsers() {
@@ -39,6 +46,10 @@ public class UserController {
 
     @DeleteMapping(value = "deleteUserById/{id}")
     public void deleteUserById(@PathVariable Integer id) {
-
+        for (Register register : registerRepository.findAll()) {
+            if (register.getUser().getId() == id) {
+                registerService.deleteById(register.getId());
+            }
+        }
     }
 }

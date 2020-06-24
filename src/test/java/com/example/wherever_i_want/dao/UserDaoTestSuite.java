@@ -1,5 +1,6 @@
 package com.example.wherever_i_want.dao;
 
+import com.example.wherever_i_want.domain.loginRegisterStaff.LogIn;
 import com.example.wherever_i_want.domain.loginRegisterStaff.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,8 +24,13 @@ public class UserDaoTestSuite {
             user.setLastname("MyLastName");
             user.setEMail("MyEMail");
             user.setPassword("MyPassword");
+            LogIn logIn = new LogIn();
+                    logIn.setUser(user);
+                    logIn.setLoginDate("2020-06023");
+                    logIn.setLoginTime("20:23:12");
+            user.getLogsIn().add(logIn);
             userDao.save(user);
 
-        Assert.assertEquals(1, userDao.findByNick("MyNick").size());
+        Assert.assertEquals(3, userDao.findByNick("MyNick").size());
     }
 }
