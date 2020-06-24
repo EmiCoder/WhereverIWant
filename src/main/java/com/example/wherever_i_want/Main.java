@@ -1,18 +1,12 @@
 package com.example.wherever_i_want;
-
-
-import com.example.wherever_i_want.domain.startAppProcess.IsAppUser;
-
+import com.example.wherever_i_want.domain.startAppProcess.AppStarting;
 import java.sql.SQLException;
 
 public class Main {
 
     public static void main(String[] args) throws SQLException {
 
-        IsAppUser isAppUser = new IsAppUser();
-        System.out.println(isAppUser.isAppUser("Sam", "jbkjbs"));
+        AppStarting.start("Gly", "jhgkgfkjl");
 
     }
-
 }
-
