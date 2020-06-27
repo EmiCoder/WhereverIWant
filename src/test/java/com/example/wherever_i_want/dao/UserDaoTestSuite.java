@@ -1,5 +1,6 @@
 package com.example.wherever_i_want.dao;
 
+import com.example.wherever_i_want.domain.Request;
 import com.example.wherever_i_want.domain.loginRegisterStaff.LogIn;
 import com.example.wherever_i_want.domain.loginRegisterStaff.User;
 import org.junit.Assert;
@@ -19,7 +20,7 @@ public class UserDaoTestSuite {
     @Test
     public void testFindByNick() {
         User user = new User();
-            user.setNick("MyNick");
+            user.setNick("Hello");
             user.setFirstname("MyFirstName");
             user.setLastname("MyLastName");
             user.setEMail("MyEMail");
@@ -29,8 +30,15 @@ public class UserDaoTestSuite {
                     logIn.setLoginDate("2020-06023");
                     logIn.setLoginTime("20:23:12");
             user.getLogsIn().add(logIn);
+        Request request = new Request();
+                request.setUser(user);
+                request.setTemperature(23);
+                request.setMonth("APRIL");
+                request.setCountry("Albania");
+                request.setRequestDate("24-12-2010");
+                user.getRequests().add(request);
             userDao.save(user);
 
-        Assert.assertEquals(3, userDao.findByNick("MyNick").size());
+        Assert.assertEquals(1, userDao.findByNick("Hello").size());
     }
 }

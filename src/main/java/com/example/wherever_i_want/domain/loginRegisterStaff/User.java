@@ -1,5 +1,6 @@
 package com.example.wherever_i_want.domain.loginRegisterStaff;
 
+import com.example.wherever_i_want.domain.Request;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,4 +42,12 @@ public class User {
             fetch = FetchType.LAZY
     )
     private List<LogIn> logsIn = new ArrayList<>();
+
+    @OneToMany(
+            targetEntity = Request.class,
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private List<Request> requests = new ArrayList<>();
 }

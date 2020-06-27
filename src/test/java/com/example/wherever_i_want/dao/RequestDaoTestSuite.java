@@ -1,7 +1,7 @@
 package com.example.wherever_i_want.dao;
 
+import com.example.wherever_i_want.domain.Request;
 import com.example.wherever_i_want.domain.loginRegisterStaff.LogIn;
-import com.example.wherever_i_want.domain.loginRegisterStaff.Register;
 import com.example.wherever_i_want.domain.loginRegisterStaff.User;
 import com.example.wherever_i_want.repository.UserRepository;
 import org.junit.Assert;
@@ -13,22 +13,23 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class LogInDaoTestSuite {
+public class RequestDaoTestSuite {
+
     @Autowired
-    LogInDao logInDao;
+    private RequestDao requestDao;
     @Autowired
     private UserRepository userRepository;
 
     @Test
-    public void testFindByUserId() {
+    public void testFindById() {
+        Request userRequest = new Request();
+                    userRequest.setUser(userRepository.findById(197).get());
+                    userRequest.setTemperature(23);
+                    userRequest.setMonth("APRIL");
+                    userRequest.setCountry("Hulakula");
+                    userRequest.setRequestDate("20-12-2010");
+                    requestDao.save(userRequest);
 
-        LogIn logIn = new LogIn();
-        logIn.setUser(userRepository.findById(205).get());
-        logIn.setLoginDate("10-05-2020");
-        logIn.setLoginTime("15:24:34");
-        logInDao.save(logIn);
-
-        Assert.assertEquals(5, logInDao.findByUserId(205).size());
+        Assert.assertEquals(1, requestDao.findByCountry("Hulakula").size());
     }
-
 }

@@ -13,8 +13,7 @@ import java.util.stream.Collectors;
 @Component
 public class LogInMapper {
 
-    @Autowired
-    private LogInService logInService;
+
     @Autowired
     private UserRepository userRepository;
 

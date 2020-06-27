@@ -17,18 +17,18 @@ public class UserResponse {
     private Statement statement;
     private ResultSet rs;
 
-    public UserResponse(UserRequest userRequest) throws SQLException, InterruptedException {
+    public UserResponse(Request userRequest) throws SQLException, InterruptedException {
         this.statement = getStatement();
         this.responseCitiesList = getCitiesToGo(userRequest);
     }
 
-    private List<ResponseCity> getCitiesToGo(UserRequest request) throws SQLException, InterruptedException {
-        if (request.getCountryCode() != null) {
+    private List<ResponseCity> getCitiesToGo(Request request) throws SQLException, InterruptedException {
+        if (request.getCountry() != null) {
             return whenCountryCodeIsNotNull(request);
         } return whenCountryCodeIsNull(request);
     }
 
-    private List<ResponseCity> whenCountryCodeIsNull(UserRequest request) throws SQLException {
+    private List<ResponseCity> whenCountryCodeIsNull(Request request) throws SQLException {
         rs = statement.executeQuery("select CITY_ID, CITY_NAME, COUNTRY_CODE from cities_artificial_data where " +
                 request.getMonth() + " > " + (request.getTemperature() - TEMPERATURE_SCOPE) + " and " + request.getMonth() +
                 " < " + (request.getTemperature() + TEMPERATURE_SCOPE));
@@ -45,15 +45,15 @@ public class UserResponse {
         return list;
     }
 
-    private List<ResponseCity> whenCountryCodeIsNotNull(UserRequest request) throws SQLException, InterruptedException {
+    private List<ResponseCity> whenCountryCodeIsNotNull(Request request) throws SQLException, InterruptedException {
         rs = getStatement().executeQuery("select CITY_ID, CITY_NAME, COUNTRY_CODE from cities_artificial_data where " +
                 request.getMonth() + " > " + (request.getTemperature() - TEMPERATURE_SCOPE) + " and " + request.getMonth() +
-                " < " + (request.getTemperature() + TEMPERATURE_SCOPE) + " and COUNTRY_CODE = \'" +request.getCountryCode() + "\'");
+                " < " + (request.getTemperature() + TEMPERATURE_SCOPE) + " and COUNTRY_CODE = \'" +request.getCountry() + "\'");
 
         List<ResponseCity> list = new ArrayList<>();
         while (rs.next()) {
             Statement newStatement = getStatement();
-            ResultSet countryName = newStatement.executeQuery("select COUNTRY_NAME from countries where COUNTRY_CODE = \'" + request.getCountryCode() + "\'");
+            ResultSet countryName = newStatement.executeQuery("select COUNTRY_NAME from countries where COUNTRY_CODE = \'" + request.getCountry() + "\'");
             countryName.next();
             ResponseCity city = new ResponseCity(
                     rs.getString(1),

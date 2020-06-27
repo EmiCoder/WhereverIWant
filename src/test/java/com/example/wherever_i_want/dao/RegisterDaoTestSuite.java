@@ -1,5 +1,7 @@
 package com.example.wherever_i_want.dao;
 
+import com.example.wherever_i_want.domain.Request;
+import com.example.wherever_i_want.domain.loginRegisterStaff.LogIn;
 import com.example.wherever_i_want.domain.loginRegisterStaff.Register;
 import com.example.wherever_i_want.domain.loginRegisterStaff.User;
 import org.junit.Assert;
@@ -25,6 +27,21 @@ public class RegisterDaoTestSuite {
             user.setAge(24);
             user.setEMail("MyEMail");
             user.setPassword("MyPassword");
+
+        LogIn logIn = new LogIn();
+        logIn.setUser(user);
+        logIn.setLoginDate("2020-06023");
+        logIn.setLoginTime("20:23:12");
+
+        user.getLogsIn().add(logIn);
+
+        Request request = new Request();
+        request.setUser(user);
+        request.setTemperature(23);
+        request.setMonth("APRIL");
+        request.setCountry("Albania");
+        request.setRequestDate("24-12-2010");
+        user.getRequests().add(request);
 
         Register register = new Register();
             register.setUser(user);
