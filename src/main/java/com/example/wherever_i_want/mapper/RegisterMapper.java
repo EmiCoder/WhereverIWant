@@ -43,7 +43,7 @@ public class RegisterMapper {
                                 register.getRegisterTime());
     }
 
-    public List<RegisterDto> mapToRegosterDtoList(List<Register> list) {
+    public List<RegisterDto> mapToRegisterDtoList(List<Register> list) {
         return list.stream().map(register -> new RegisterDto(register.getId(),
                                                                 register.getUser().getId(),
                                                                 register.getRegisterDate(),

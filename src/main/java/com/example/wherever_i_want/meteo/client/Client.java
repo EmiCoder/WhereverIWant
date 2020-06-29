@@ -16,8 +16,6 @@ public class Client {
 
     @Autowired
     private RestTemplate restTemplate;
-    @Autowired
-    private Config config;
 
 
     public MeteostatStationTemperaturesDto getMeteostatTemperaturesDto()  {

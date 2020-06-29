@@ -3,9 +3,7 @@ package com.example.wherever_i_want.controller;
 
 import com.example.wherever_i_want.domain.dto.RegisterDto;
 import com.example.wherever_i_want.mapper.RegisterMapper;
-import com.example.wherever_i_want.repository.RegisterRepository;
 import com.example.wherever_i_want.service.RegisterService;
-import com.example.wherever_i_want.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +20,7 @@ public class RegisterController {
 
     @GetMapping(value = "/getAllRegisters")
     public List<RegisterDto> getAllRegisters() {
-        return registerMapper.mapToRegosterDtoList(registerService.getAll());
+        return registerMapper.mapToRegisterDtoList(registerService.getAll());
     }
 
     @GetMapping(value = "/getRegister/{id}")

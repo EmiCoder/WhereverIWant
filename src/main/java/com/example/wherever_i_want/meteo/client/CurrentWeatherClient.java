@@ -18,7 +18,7 @@ public class CurrentWeatherClient {
     private String weatherAppKey;
 
     @Autowired
-    private RestTemplate restTemplate;
+    public RestTemplate restTemplate;
 
     private static final double TEMPERATURE_INDICATOR =  273.15;
 

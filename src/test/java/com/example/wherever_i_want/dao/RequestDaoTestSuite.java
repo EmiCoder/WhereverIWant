@@ -23,13 +23,14 @@ public class RequestDaoTestSuite {
     @Test
     public void testFindById() {
         Request userRequest = new Request();
-                    userRequest.setUser(userRepository.findById(197).get());
+                    userRequest.setUser(userRepository.findById(220).get());
                     userRequest.setTemperature(23);
                     userRequest.setMonth("APRIL");
-                    userRequest.setCountry("Hulakula");
+                    userRequest.setCountry("NewNamedCountry");
                     userRequest.setRequestDate("20-12-2010");
                     requestDao.save(userRequest);
 
-        Assert.assertEquals(1, requestDao.findByCountry("Hulakula").size());
+        Assert.assertEquals(1, requestDao.findByCountry("NewNamedCountry").size());
+        requestDao.deleteById(userRequest.getId());
     }
 }

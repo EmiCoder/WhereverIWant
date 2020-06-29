@@ -1,11 +1,13 @@
 package com.example.wherever_i_want.controller;
 
+import com.example.wherever_i_want.domain.Request;
 import com.example.wherever_i_want.domain.dto.RequestDto;
 import com.example.wherever_i_want.mapper.RequestMapper;
 import com.example.wherever_i_want.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +27,17 @@ public class RequestController {
     @GetMapping(value = "/getRequestByID/{id}")
     public RequestDto getRequestById(@PathVariable Integer id) {
         return mapper.mapToRequestDto(service.findById(id));
+    }
+
+    @GetMapping(value = "/getRequestsByDate/{date}")
+    public List<RequestDto> getRequestById(@PathVariable String date) {
+        List<Request> list = new ArrayList<>();
+        for (Request request : service.getAll()) {
+            if (request.getRequestDate().equals(date)) {
+                list.add(request);
+            }
+        }
+        return mapper.getRequestDtoList(list);
     }
 
     @PostMapping(value = "/createRequest")
