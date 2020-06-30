@@ -22,25 +22,25 @@ public class LogInDaoTestSuite {
     @Test
     public void testFindByUserId() {
 
-//        LogIn logIn = new LogIn();
-//        logIn.setId(10000);
-//        User user = new User();
-//        user.setId(1000);
-//            user.setNick("user1");
-//            user.setFirstname("firstname1");
-//            user.setLastname("lastname1");
-//            user.setAge(100);
-//            user.setEMail("email1");
-//            user.setPassword("password1");
-//        userDao.save(user);
-//        logIn.setUser(user);
-//        logIn.setLoginDate("10-05-2020");
-//        logIn.setLoginTime("15:24:34");
-//        logInDao.save(logIn);
-//
-//        Assert.assertEquals(1, logInDao.findByUserId(user.getId()).size());
-//        userDao.deleteById(user.getId());
-//        logInDao.deleteById(logIn.getId());
+        LogIn logIn = new LogIn();
+        logIn.setId(10000);
+        User user = new User();
+        user.setId(1000);
+            user.setNick("user1");
+            user.setFirstname("firstname1");
+            user.setLastname("lastname1");
+            user.setAge(100);
+            user.setEMail("email1");
+            user.setPassword("password1");
+        userDao.save(user);
+        logIn.setUser(user);
+        logIn.setLoginDate("10-05-2020");
+        logIn.setLoginTime("15:24:34");
+        logInDao.save(logIn);
+
+        Assert.assertEquals(1, logInDao.findByUserId(user.getId()).size());
+        userDao.deleteById(user.getId());
+        logInDao.deleteById(logIn.getId());
     }
 
 }

@@ -32,10 +32,8 @@ public class EmailSchedulerLastRequests {
 
     @Scheduled(cron = "0 0 13 * * *")
     public void sendEmailWithRequestsDetails() {
-
         List<Request> list = requestRepository.findAll();
         simpleMailService.send(new Mail(adminEmail, SUBJECT + ": " + getDateBefor(), getEmailMessage(list)));
-
     }
 
     private String getEmailMessage(List<Request> list) {

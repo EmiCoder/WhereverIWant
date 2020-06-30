@@ -20,14 +20,13 @@ public class CityDaoTestSuite {
 
     @Test
     public void testCityDaoSave() {
+        City city = new City();
+        city.setId("gtfrg");
+        city.setName("FunnyAndSweetyName");
+        city.setCountryCode("FunnyAndSweetyCode");
+        cityDao.save(city);
 
-//        City city = new City();
-//        city.setId("gtfrg");
-//        city.setName("FunnyAndSweetyName");
-//        city.setCountryCode("FunnyAndSweetyCode");
-//        cityDao.save(city);
-//
-//        Assert.assertEquals(1, cityDao.findByName("FunnyAndSweetyName").size());
-//        cityDao.deleteById(city.getGeneral_id());
+        Assert.assertEquals(1, cityDao.findByName("FunnyAndSweetyName").size());
+        cityDao.deleteById(city.getGeneral_id());
     }
 }
